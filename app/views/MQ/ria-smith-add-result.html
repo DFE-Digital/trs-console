@@ -1,0 +1,89 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is not a real service.'
+}) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-m">Add a mandatory qualification - Ria Smith</span>
+      <h1 class="govuk-heading-l">Result</h1>
+
+      <form class="form" action="/MQ/ria-smith-add-check-answers" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+        {% set passedHtml %}
+
+        {{ govukDateInput({
+          id: "passed",
+          namePrefix: "passed",
+          fieldset: {
+            legend: {
+              text: "End date"
+            }
+          }
+        }) }}
+
+{% endset -%}
+
+        {{ govukRadios({
+          name: "result",
+          value: 'result',
+          items: [
+            {
+              value: "in progress",
+              text: "In progress"
+            },
+            {
+              value: "deferred",
+              text: "Deferred"
+            },
+            {
+              value: "extended",
+              text: "Extended"
+            },
+            {
+              value: "passed",
+              text: "Passed",
+              conditional: {
+                html: passedHtml
+              }
+            },
+            {
+              value: "withdrawn",
+              text: "Withdrawn"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+      <a class="govuk-link" href="/MQ/ria-smith-blank">Cancel and return to record</a>
+
+    </div>
+  </div>
+
+{% endblock %}

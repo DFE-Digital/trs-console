@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is not a real service.'
+}) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+<span class="govuk-caption-m">Add a mandatory qualification - Ria Smith</span>
+<h1 class="govuk-heading-l">Training provider</h1>
+
+<div class="govuk-form-group">
+<form class="form" action="/MQ/ria-smith-add-specialism" method="post">
+
+<select class="govuk-select govuk-!-width-two-thirds" name="choose-provider" id="choose-provider">
+
+  <option value="">
+  </option>
+  <option value="Liverpool John Moores University and St Vincent’s special school">Liverpool John Moores University and St Vincent’s special school
+    </option>
+    <option value="Mary Hare School and University of Hertfordshire">Mary Hare School and University of Hertfordshire
+    </option>
+    <option value="University of Birmingham">University of Birmingham
+    </option>
+    <option value="University of Edinburgh">University of Edinburgh
+    </option>
+    <option value="University of Leeds">University of Leeds
+    </option>
+    <option value="University of Manchester">University of Manchester
+    </option>
+
+</select>
+
+</div>
+
+  {{ govukButton({
+    text: "Continue",
+    href: "/MQ/ria-smith-add-check-answers"
+  }) }}
+
+</form>
+<br>
+
+<a class="govuk-link" href="/MQ/ria-smith-blank">Cancel and return to record</a>
+
+</div>
+</div>
+
+{% endblock %}

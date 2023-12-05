@@ -1,0 +1,139 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is not a real service.'
+}) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+let
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <span class="govuk-caption-m">Add a mandatory qualification - Ria Smith</span>
+      <h1 class="govuk-heading-l">Check details and confirm mandatory qualification</h1>
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Training provider"
+            },
+            value: {
+              text: data['choose-provider']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/MQ/ria-smith-add-provider",
+                  text: "Change",
+                  visuallyHiddenText: "training provider"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Specialism"
+            },
+            value: {
+              text: data['specialism']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/MQ/ria-smith-add-specialism",
+                  text: "Change",
+                  visuallyHiddenText: "specialism"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Start date"
+            },
+            value: {
+              text: data| isoDateFromDateInput("startDate") | govukDate
+            },
+            actions: {
+              items: [
+                {
+                  href: "/MQ/ria-smith-add-start-date",
+                  text: "Change",
+                  visuallyHiddenText: "start date"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Result"
+            },
+            value: {
+              text: data['result'].charAt(0).toUpperCase() + data['result'].slice(1)
+            },
+            actions: {
+              items: [
+                {
+                  href: "/MQ/ria-smith-add-result",
+                  text: "Change",
+                  visuallyHiddenText: "result"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "End date"
+            },
+            value: {
+              text: data| isoDateFromDateInput("passed") | govukDate 
+            },
+            actions: {
+              items: [
+                {
+                  href: "/MQ/ria-smith-add-result",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <form action="/MQ/ria-smith-success" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Confirm mandatory qualification"
+        }) }}
+
+      </form>
+
+      <a class="govuk-link" href="/MQ/ria-smith-blank">Cancel and return to record</a>
+
+    </div>
+  </div>
+{% endblock %}

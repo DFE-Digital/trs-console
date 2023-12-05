@@ -1,0 +1,32 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% set html %}
+  <h3 class="govuk-notification-banner__heading">
+    The request has been rejected
+  </h3>
+  <p class="govuk-body">The user's record has not been changed and they have been notified.</p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html,
+  type: "success"
+}) }}
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--l">Open cases</caption>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">No open cases</td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}
