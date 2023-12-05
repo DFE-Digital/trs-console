@@ -1,0 +1,123 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is not a real service.'
+}) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+<h1 class="govuk-heading-l">
+  Ria Smith
+</h1>
+
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+{{ mojSubNavigation({
+  label: 'Sub navigation',
+  items: [{
+    text: 'General',
+    href: '#1'
+  }, {
+    text: 'Qualifications',
+    href: '#2',
+    active: true
+  }, {
+    text: 'Alerts',
+    href: '#3'
+  }, {
+    text: 'Change log',
+    href: '#4'
+  }]
+}) }}
+
+<p> No mandatory qualifications.</p>
+
+<!---
+
+  // Sample MQ
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Mandatory qualifications"
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Change",
+          visuallyHiddenText: "of mandatory qualifications"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Specialism"
+      },
+      value: {
+        html: "Multi sensory"
+      }
+    },
+    {
+      key: {
+        text: "Establishment"
+      },
+      value: {
+        html: "University of Birmingham"
+      }
+    },
+    {
+      key: {
+        text: "Start date"
+      },
+      value: {
+        html: "07/12/2020"
+      }
+    },
+    {
+      key: {
+        text: "End date"
+      },
+      value: {
+        html: "31/12/2022"
+      }
+    },
+    {
+      key: {
+        text: "Result"
+      },
+      value: {
+        html: "Passed"
+      }
+    }
+  ]
+}) }}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+--->
+
+{{ govukButton({
+  text: "Add a mandatory qualification",
+  href: "/MQ/ria-smith-add-provider"
+}) }}
+
+{% endblock %}

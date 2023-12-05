@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is not a real service.'
+}) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-m">Add a mandatory qualification - Ria Smith</span>
+      <h1 class="govuk-heading-l">Start date</h1>
+
+      <form class="form" action="/MQ/ria-smith-add-result" method="post">
+
+        {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+        {{ govukDateInput({
+          id: "start-date",
+          namePrefix: "startDate",
+          items: [
+            {
+              name: "day",
+              value: data['startDate-day'],
+              classes: "govuk-input--width-2"
+            },
+            {
+              name: "month",
+              value: data['startDate-month'],
+              classes: "govuk-input--width-2"
+            },
+            {
+              name: "year",
+              value: data['startDate-year'],
+              classes: "govuk-input--width-4"
+            }
+          ]
+        }) }}
+        
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+      
+      <a class="govuk-link" href="/MQ/ria-smith-blank">Cancel and return to record</a>
+
+    </div>
+  </div>
+
+{% endblock %}

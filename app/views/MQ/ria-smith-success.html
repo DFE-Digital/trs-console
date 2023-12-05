@@ -1,0 +1,174 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is not a real service.'
+}) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+<h1 class="govuk-heading-l">
+  Ria Smith
+</h1>
+
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+{{ mojSubNavigation({
+  label: 'Sub navigation',
+  items: [{
+    text: 'General',
+    href: '#1'
+  }, {
+    text: 'Qualifications',
+    href: '#2',
+    active: true
+  }, {
+    text: 'Alerts',
+    href: '#3'
+  }, {
+    text: 'Change log',
+    href: '#4'
+  }]
+}) }}
+
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% set html %}
+  <h3 class="govuk-notification-banner__heading">
+    Mandatory qualification added
+  </h3>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html,
+  type: "success"
+}) }}
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Mandatory qualification for " + data['specialism']
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Remove qualification",
+          visuallyHiddenText: "mandatory qualification"
+        }
+      ]
+    }
+  },
+  rows: [
+  {
+    key: {
+      text: "Training provider"
+    },
+    value: {
+      text: data['choose-provider']
+    },
+    actions: {
+      items: [
+        {
+          href: "/MQ/ria-smith-add-provider",
+          text: "Change",
+          visuallyHiddenText: "training provider"
+        }
+      ]
+    }
+  },
+    {
+      key: {
+        text: "Specialism"
+      },
+      value: {
+        text: data['specialism']
+      },
+      actions: {
+        items: [
+          {
+            href: "/MQ/ria-smith-add-specialism",
+            text: "Change",
+            visuallyHiddenText: "specialism"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Start date"
+      },
+      value: {
+        text: data| isoDateFromDateInput("startDate") | govukDate
+      },
+      actions: {
+        items: [
+          {
+            href: "/MQ/ria-smith-add-start-date",
+            text: "Change",
+            visuallyHiddenText: "start date"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Result"
+      },
+      value: {
+        text: data['result'].charAt(0).toUpperCase() + data['result'].slice(1)
+      },
+      actions: {
+        items: [
+          {
+            href: "/MQ/ria-smith-add-result",
+            text: "Change",
+            visuallyHiddenText: "result"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "End date"
+      },
+      value: {
+        text: data| isoDateFromDateInput("passed") | govukDate
+      },
+      actions: {
+        items: [
+          {
+            href: "/MQ/ria-smith-add-result",
+            text: "Change",
+            visuallyHiddenText: "end date"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Add a mandatory qualification",
+  href: "/MQ/ria-smith-add-provider"
+}) }}
+
+{% endblock %}

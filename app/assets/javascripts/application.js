@@ -5,4 +5,20 @@
 
 window.GOVUKPrototypeKit.documentReady(() => {
   // Add JavaScript here
+
+  let selectElement = document.querySelector('#choose-provider')
+
+ 
+
+accessibleAutocomplete.enhanceSelectElement({
+
+  defaultValue: '',
+
+  selectElement: selectElement
+
+})
+
+
+
+
 })

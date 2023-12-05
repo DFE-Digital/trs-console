@@ -1,0 +1,61 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is not a real service.'
+}) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-m">Add a mandatory qualification - Ria Smith</span>
+<h1 class="govuk-heading-l">Specialism</h1>
+
+<form class="form" action="/MQ/ria-smith-add-start-date" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        
+        {{ govukRadios({
+          name: "specialism",
+          value: 'specialism',
+          items: [
+            {
+              value: "Hearing",
+              text: "Hearing"
+            },            {
+              value: "Multi sensory",
+              text: "Multi sensory"
+            },            {
+              value: "Vision",
+              text: "Vision"
+            }
+          ]
+        }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        
+        </form>
+
+<a class="govuk-link" href="/MQ/ria-smith-blank">Cancel and return to record</a>
+
+    </div>
+  </div>
+
+{% endblock %}

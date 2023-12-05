@@ -1,0 +1,107 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is not a real service.'
+}) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">Change of Name - Angela Jackson</span>
+    <h1 class="govuk-heading-l">Request</h1>
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header"></th>
+          <th scope="col" class="govuk-table__header">Current</th>
+          <th scope="col" class="govuk-table__header">Requested</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">First name</th>
+          <td class="govuk-table__cell">Angela</td>
+          <td class="govuk-table__cell">Amazon</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<h2 class="govuk-heading-l">Proof</h2>
+
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Documents we accept
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <h3 class="govuk-body-s govuk-!-font-weight-bold govuk-body">Marriage</h>
+      <p class="govuk-body-s">Marriage certificate</p>
+    <h3 class="govuk-body-s govuk-!-font-weight-bold govuk-body">Civil partnership</h>
+      <p class="govuk-body-s">Civil agreement certificate</p>
+    <h3 class="govuk-body-s govuk-!-font-weight-bold govuk-body">Statutory declaration</h>
+      <p class="govuk-body-s">Statutory declaration</p>
+    <h3 class="govuk-body-s govuk-!-font-weight-bold govuk-body">Deed poll</h>
+      <p class="govuk-body-s">Deed poll</p>
+    <h3 class="govuk-body-s govuk-!-font-weight-bold govuk-body">Fix a typo</h>
+      <p class="govuk-body-s">Passport</p>
+  </div>
+</details>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+              <img src="/public/images/Deed_Poll_of_Change_of_Name 1.png" alt="Deed poll change of name">
+          </div>
+        </div>
+  
+  <p class="govuk-body">
+    <a href="/public/images/Deed_Poll_of_Change_of_Name 1.png" class="govuk-link" rel="noreferrer noopener" target="_blank">View larger (opens in new tab)</a>
+      </p>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <img src="/public/images/Deed_Poll_of_Change_of_Name 2.png" alt="Deed poll change of name">
+        <p class="govuk-body">
+          <a href="/public/images/Deed_Poll_of_Change_of_Name 2.png" class="govuk-link" rel="noreferrer noopener" target="_blank">View larger (opens in new tab)</a>
+            </p>
+          </div>
+        </div>
+
+        <hr class="govuk-section-break govuk-section-break--m">
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Accept change",
+              href: "/change-requests/01006-F4Q3Z7/accept-check"
+            }) }}
+          
+            {{ govukButton({
+              text: "Reject change",
+              classes: "govuk-button--warning",
+              href: "/change-requests/01006-F4Q3Z7/reject-check"
+            }) }}
+          </div>
+
+          <a class="govuk-link" href="/change-requests/home">Cancel and return to open cases</a>
+
+{% endblock %}

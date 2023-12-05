@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is not a real service.'
+}) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">Change of date of birth - Angela Zoe</span>
+    <h1 class="govuk-heading-l">Request</h1>
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header"></th>
+          <th scope="col" class="govuk-table__header">Current</th>
+          <th scope="col" class="govuk-table__header">Requested</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Date of birth</th>
+          <td class="govuk-table__cell">11 September 1899</td>
+          <td class="govuk-table__cell">1 January 1988</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<h2 class="govuk-heading-l">Proof</h2>
+
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Documents we accept
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+      <p class="govuk-body-s">Birth certificate</p>
+      <p class="govuk-body-s">Marriage certificate</p>
+      <p class="govuk-body-s">Passport</p>
+  </div>
+</details>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+              <img src="/public/images/british-passport-redesign 1.png" alt="Passport scan">
+              <p class="govuk-body">
+                <a href="/public/images/british-passport-redesign 1.png" class="govuk-link" rel="noreferrer noopener" target="_blank">Open in new tab</a>
+                  </p>
+          </div>
+        </div>
+
+        <hr class="govuk-section-break govuk-section-break--m">
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Accept change",
+              href: "/change-requests/20042-R6T3S2/accept-check"
+            }) }}
+          
+            {{ govukButton({
+              text: "Reject change",
+              classes: "govuk-button--warning",
+              href: "/change-requests/20042-R6T3S2/reject-check"
+            }) }}
+          </div>
+
+{% endblock %}

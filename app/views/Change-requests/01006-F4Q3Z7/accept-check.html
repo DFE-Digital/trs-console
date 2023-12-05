@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is not a real service.'
+}) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">Change of Name - Angela Jackson</span>
+    <h1 class="govuk-heading-l">Confirm the change</h1>
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header"></th>
+          <th scope="col" class="govuk-table__header">Current</th>
+          <th scope="col" class="govuk-table__header">Requested</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">First name</th>
+          <td class="govuk-table__cell">Angela</td>
+          <td class="govuk-table__cell">Amazon</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+        {{ govukButton({
+          text: "Confirm",
+          href: "/change-requests/01006-F4Q3Z7/accepted"
+        }) }}
+
+      </form>
+<br> <a class="govuk-link" href="/change-requests/home">Cancel and return to open cases</a>
+
+    </div>
+  </div>
+
+
+
+{% endblock %}

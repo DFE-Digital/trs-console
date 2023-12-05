@@ -1,0 +1,35 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--l">Open cases</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Case reference</th>
+      <th scope="col" class="govuk-table__header">Name</th>
+      <th scope="col" class="govuk-table__header">Case type</th>
+      <th scope="col" class="govuk-table__header">Created on</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><a href="/change-requests/01006-F4Q3Z7/change-name" class="govuk-link govuk-link--no-visited-state">CAS-01006-F4Q3Z7</a></td>
+      <td class="govuk-table__cell">Angela Jackson</td>
+      <td class="govuk-table__cell">Change of Name</td>
+      <td class="govuk-table__cell">01/01/2023</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><a href="/change-requests/20042-R6T3S2/change-dob" class="govuk-link govuk-link--no-visited-state">CAS-20042-R6T3S2</a></td>
+      <td class="govuk-table__cell">Angela Zoe</td>
+      <td class="govuk-table__cell">Change of Date of Birth</td>
+      <td class="govuk-table__cell">02/01/2023</td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  label: {
+    text: "Search",
+    classes: "govuk-label--l",
+    isPageHeading: false
+  },
+  hint: {
+    text: "Search by name, TRN or date of birth (DD/MM/YYYY)"
+  },
+  id: "search",
+  name: "search"
+}) }}
+
+{% endblock %}

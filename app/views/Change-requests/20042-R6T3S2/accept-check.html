@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+      <form class="form" action="/change-requests/20042-R6T3S2/accept-confirm" method="post">
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <span class="govuk-caption-l">Change of date of birth - Angela Zoe</span>
+            <h1 class="govuk-heading-l">Confirm the change</h1>
+        
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header"></th>
+                  <th scope="col" class="govuk-table__header">Current</th>
+                  <th scope="col" class="govuk-table__header">Requested</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Date of birth</th>
+                  <td class="govuk-table__cell">11 September 1899</td>
+                  <td class="govuk-table__cell">1 January 1988</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {{ govukButton({
+          text: "Confirm"
+        }) }}
+
+      </form>
+      <a class="govuk-link" href="/change-requests/home">Cancel and return to open cases</a>
+    </div>
+  </div>
+
+{% endblock %}

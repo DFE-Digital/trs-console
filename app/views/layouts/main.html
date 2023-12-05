@@ -4,3 +4,48 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 #}
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is not a real service.'
+}) }}
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "/index",
+  serviceName: "TRS Console",
+  serviceUrl: "/index",
+  navigation: [
+    {
+      href: "/index",
+      text: "Home",
+      active: true
+    },
+    {
+      href: "/index",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block scripts %}
+
+  {{ super() }}
+
+  <script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+
+{% endblock %}
+
+{% block stylesheets %}
+
+  {{ super() }}
+
+  <link href="/public/css/accessible-autocomplete.min.css" rel="stylesheet" type="text/css" />
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Change of date of birth - Angela Zoe</span>
+      <h1 class="govuk-heading-l">Reject the change</h1>
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        name: "rejectReason",
+        fieldset: {
+          legend: {
+            text: "Reason for rejecting",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "no-match",
+            text: "Request and proof don't match"
+          },
+          {
+            value: "wrong-document",
+            text: "Wrong type of document"
+          },
+          {
+            value: "image-quality",
+            text: "Image quality"
+          },
+          {
+            value: "cancelled",
+            text: "Change no longer needed"
+          }
+        ]
+      }) }}
+
+      <form class="form" action="/change-requests/20042-R6T3S2/reject-confirm" method="post">
+
+        {{ govukButton({
+          text: "Reject"
+        }) }}
+
+      </form>
+
+      
+    </div>
+  </div>
+
+  <a class="govuk-link" href="/change-requests/home">Cancel and return to open cases</a
+
+{% endblock %}
