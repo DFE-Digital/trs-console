@@ -1,4 +1,4 @@
-# TRS console (prototype)
+# TRS console prototype
 This prototype is based on the [GOV.UK prototype kit](https://github.com/alphagov/govuk-prototype-kit)
 
 ## Installation
