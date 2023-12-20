@@ -41,79 +41,24 @@
     href: '#3'
   }, {
     text: 'Change history',
-    href: '#4'
+    href: '/MQ/delete/ria-smith-delete-change-history'
   }]
 }) }}
 
-<p> No mandatory qualifications.</p>
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
-<!---
+{% set html %}
+  <h3 class="govuk-notification-banner__heading">
+    Mandatory qualification deleted
+  </h3>
+{% endset %}
 
-  // Sample MQ
-
-{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
-
-{{ govukSummaryList({
-  card: {
-    title: {
-      text: "Mandatory qualifications"
-    },
-    actions: {
-      items: [
-        {
-          href: "#",
-          text: "Change",
-          visuallyHiddenText: "of mandatory qualifications"
-        }
-      ]
-    }
-  },
-  rows: [
-    {
-      key: {
-        text: "Specialism"
-      },
-      value: {
-        html: "Multi sensory"
-      }
-    },
-    {
-      key: {
-        text: "Establishment"
-      },
-      value: {
-        html: "University of Birmingham"
-      }
-    },
-    {
-      key: {
-        text: "Start date"
-      },
-      value: {
-        html: "07/12/2020"
-      }
-    },
-    {
-      key: {
-        text: "End date"
-      },
-      value: {
-        html: "31/12/2022"
-      }
-    },
-    {
-      key: {
-        text: "Result"
-      },
-      value: {
-        html: "Passed"
-      }
-    }
-  ]
+{{ govukNotificationBanner({
+  html: html,
+  type: "success"
 }) }}
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
---->
 
 {{ govukButton({
   text: "Add a mandatory qualification",

@@ -1,0 +1,132 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Delete qualification - Ria Smith – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is not a real service.'
+}) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Delete qualification - Ria Smith</span>
+    <h1 class="govuk-heading-l">Delete mandatory qualification for multi sensory impairment</h1>
+
+      <form class="form" action="/MQ/delete/ria-smith-delete-confirm" method="post">
+        
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "deleteReason",
+          value: data['deleteReason'],
+          fieldset: {
+            legend: {
+              text: "Reason for deleting",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+          {
+            value: "Added in error",
+            text: "Added in error"
+          },
+          {
+            value: "Provider request",
+            text: "Provider request"
+          },
+          {
+            value: "Unable to confirm if the data is correct",
+            text: "Unable to confirm if the data is correct"
+          },
+          {
+            value: "Another reason",
+            text: "Another reason"
+          }
+          ]
+        }) }}
+
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+
+{{ govukCharacterCount({
+  name: "moreDetail",
+  id: "more-detail",
+  value: data['moreDetail'],
+  maxlength: 300,
+  label: {
+    text: "More detail about the reason for deleting",
+    classes: "govuk-label--m"
+  }
+}) }}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% set fileYesHtml %}
+
+{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+{{ govukFileUpload({
+  id: "file-upload-1",
+  name: "fileUpload1",
+  value: data['file-upload1'],
+  label: {
+    text: "Upload a file"
+  }
+}) }}
+
+{% endset -%}
+
+{{ govukRadios({
+  name: "file",
+  value: data['file'],
+  fieldset: {
+    legend: {
+      text: "Upload evidence",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes",
+      conditional: {
+        html: fileYesHtml
+      }
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+      <a class="govuk-link" href="/MQ/delete/ria-smith-record">Cancel and return to record</a>
+
+    </div>
+  </div>
+
+{% endblock %}
+

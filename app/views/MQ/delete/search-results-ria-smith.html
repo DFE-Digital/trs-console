@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Search results - Ria Smith - delete an MQ – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is not a real service.'
+}) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-l">Search results (1)</h1>
+
+<table class="govuk-table govuk-!-width-two-thirds">
+  <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Name</th>
+          <th scope="col" class="govuk-table__header">Date of birth</th>
+          <th scope="col" class="govuk-table__header">TRN</th>
+      </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+              <tr class="govuk-table__row" data-testid="person-ec06b366-cdae-e311-b8ed-005056822391">
+                  <td class="govuk-table__cell" data-testid="name"><a href="/MQ/delete/ria-smith-record" class="govuk-link">Ria Smith</a></td>
+                  <td class="govuk-table__cell" data-testid="date-of-birth">5 January 1978</td>
+                  <td class="govuk-table__cell" data-testid="trn">3589837</td>
+              </tr>
+
+  </tbody>
+</table>
+
+{% endblock %}
+

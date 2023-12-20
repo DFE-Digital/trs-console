@@ -1,0 +1,247 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Ria Smith record - delete an MQ – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is not a real service.'
+}) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-l">
+  Ria Smith
+</h1>
+
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+{{ mojSubNavigation({
+  label: 'Sub navigation',
+  items: [{
+    text: 'General',
+    href: '#1'
+  }, {
+    text: 'Qualifications',
+    href: '/MQ/ria-smith-blank'
+  }, {
+    text: 'Alerts',
+    href: '#3'
+  }, {
+    text: 'Change history',
+    href: '#4',
+    active: true
+  }]
+}) }}
+
+{%- from "moj/components/timeline/macro.njk" import mojTimeline -%}
+
+{%- set confirmationHtml %}
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non felis risus. Curabitur nec ante vitae felis ullamcorper tincidunt.</p>
+  <a class="govuk-button govuk-!-margin-bottom-0" href="#">Continue</a>
+{% endset -%}
+
+{%- set editDetailsHtml %}
+<details class="govuk-details govuk-!-margin-bottom-0">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Reason for editing
+    </span>
+  </summary>
+  <dl class="govuk-summary-list govuk-summary-list">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Reason
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Provider request
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        More detail
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Received email from training provider that the trainee needed to resit an exam. 
+      </dd>
+    </div>
+  </dl>
+</details>
+<details class="govuk-details govuk-!-margin-bottom-0">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Data deleted
+    </span>
+  </summary>
+  <dl class="govuk-summary-list govuk-summary-list">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Status
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Passed
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        End date
+      </dt>
+      <dd class="govuk-summary-list__value">
+        12 December 2019 
+      </dd>
+    </div>
+  </dl>
+</details>
+{% endset -%}
+
+{%- set deleteDetailsHtml %}
+
+<details class="govuk-details govuk-!-margin-bottom-0">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Reason for deleting
+    </span>
+  </summary>
+  <dl class="govuk-summary-list govuk-summary-list">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Reason
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ data['deleteReason'] }}
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        More detail
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ data['moreDetail'] }} 
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Evidence
+      </dt>
+      <dd class="govuk-summary-list__value">
+        <ul class="moj-timeline__documents">
+          <li class="moj-timeline__document-item">
+            <a class="govuk-link" href="#">
+              <svg class="moj-timeline__document-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" width="20" height="16">
+                <path d="M9 7V1.5L14.5 7H9zM2 0C.9 0 0 .9 0 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6l-6-6H2z"/>
+              </svg>
+              {{ data['fileUpload1'] or "None" }}
+            </a>
+          </li>
+        </ul>
+      </dd>
+    </div>
+  </dl>
+</details>
+<details class="govuk-details govuk-!-margin-bottom-0">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Data deleted
+    </span>
+  </summary>
+  <dl class="govuk-summary-list govuk-summary-list">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Training provider
+      </dt>
+      <dd class="govuk-summary-list__value">
+        University of Birmingham
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Specialism
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Multi sensory impairment
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Status
+      </dt>
+      <dd class="govuk-summary-list__value">
+        Passed
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Start date
+      </dt>
+      <dd class="govuk-summary-list__value">
+        10 may 2018
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        End date
+      </dt>
+      <dd class="govuk-summary-list__value">
+        12 July 2018
+      </dd>
+    </div>
+  </dl>
+</details>
+
+{% endset -%}
+
+{{ mojTimeline({
+  items: [
+   {
+      label: {
+        text:  "Mandatory qualification deleted"
+      },
+      html: deleteDetailsHtml,
+      datetime: {
+        timestamp: "2019-05-28T10:45:00.000Z",
+        type: "datetime"
+      },
+      byline: {
+        text: "Caseworker 2"
+      }
+    },
+    {
+      label: {
+        text:  "Mandatory qualification edited"
+      },
+      html: editDetailsHtml,
+      datetime: {
+        timestamp: "2019-05-28T10:45:00.000Z",
+        type: "datetime"
+      },
+      byline: {
+        text: "Caseworker 2"
+      }
+    },
+    {
+      label: {
+        text:  "Mandatory qualification added"
+      },
+      datetime: {
+        timestamp: "2019-06-14T13:01:00.000Z",
+        type: "datetime"
+      },
+      byline: {
+        text: "Caseworker 2"
+      }
+    }
+  ]
+}) }}
+
+
+{% endblock %}

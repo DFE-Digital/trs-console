@@ -7,32 +7,38 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-  <h2 class="govuk-heading-m">
-    Change requests
-  </h2>
-  <p>Complete the two cases in the order they're listed.</p>
-
-    {% from "govuk/components/button/macro.njk" import govukButton %}
-    {{ govukButton({
-      text: "Manage change requests",
-      href: "/change-requests/home",
-      isStartButton: true
-    }) }}
-
-    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
         <h2 class="govuk-heading-m">
           Mandatory Qualifications
         </h2> 
       
           {% from "govuk/components/button/macro.njk" import govukButton %}
           {{ govukButton({
-            text: "Manage mandatory qualifications",
+            text: "Add a mandatory qualification",
             href: "/MQ/search-results-ria-smith",
             isStartButton: true
           }) }}
 
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+          {{ govukButton({
+            text: "Delete a mandatory qualification",
+            href: "/MQ/delete/search-results-ria-smith",
+            isStartButton: true
+          }) }}
+
           <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+          <h2 class="govuk-heading-m">
+            Change requests
+          </h2>
+        
+            {% from "govuk/components/button/macro.njk" import govukButton %}
+            {{ govukButton({
+              text: "Manage change requests",
+              href: "/change-requests/home",
+              isStartButton: true
+            }) }}
+        
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
           <h2 class="govuk-heading-m">
             Alerts
@@ -40,7 +46,7 @@
       
           <p class="govuk-body" govuk-body>Search for DOB "01/01/1980":
             <ul class="govuk-list govuk-list--bullet">
-              <li>Ria Smith has an alert than can be removed</li>
+              <li>Ria Smith has an alert that can be removed</li>
               <li>Magnus Davidsson-Summer has no alert and you can add one</li>
             </ul>
           </p>
