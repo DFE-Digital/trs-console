@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Ria Smith record - delete an MQ – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -45,32 +45,19 @@
   }]
 }) }}
 
-{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
-
-{% set html %}
-  <h3 class="govuk-notification-banner__heading">
-    Mandatory qualification added
-  </h3>
-{% endset %}
-
-{{ govukNotificationBanner({
-  html: html,
-  type: "success"
-}) }}
-
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
 {{ govukSummaryList({
   card: {
     title: {
-      text: "Mandatory qualification for " + data['specialism']
+      text: "Mandatory qualification for multi sensory impairment"
     },
     actions: {
       items: [
         {
-          href: "#",
-          text: "Remove qualification",
-          visuallyHiddenText: "mandatory qualification"
+          href: "ria-smith-delete",
+          text: "Delete qualification",
+          visuallyHiddenText: "delete mandatory qualification"
         }
       ]
     }
@@ -81,14 +68,14 @@
       text: "Training provider"
     },
     value: {
-      text: data['choose-provider']
+      text: "University of Birmingham"
     },
     actions: {
       items: [
         {
-          href: "/MQ/ria-smith-add-provider",
+          href: '#',
           text: "Change",
-          visuallyHiddenText: "training provider"
+          visuallyHiddenText: "change training provider"
         }
       ]
     }
@@ -98,14 +85,14 @@
         text: "Specialism"
       },
       value: {
-        text: data['specialism']
+        text: "Multi sensory"
       },
       actions: {
         items: [
           {
-            href: "/MQ/ria-smith-add-specialism",
+            href: '#',
             text: "Change",
-            visuallyHiddenText: "specialism"
+            visuallyHiddenText: "change specialism"
           }
         ]
       }
@@ -115,14 +102,14 @@
         text: "Start date"
       },
       value: {
-        text: data| isoDateFromDateInput("startDate") | govukDate
+        text: "7 December 2020"
       },
       actions: {
         items: [
           {
-            href: "/MQ/ria-smith-add-start-date",
+            href: '#',
             text: "Change",
-            visuallyHiddenText: "start date"
+            visuallyHiddenText: "change start date"
           }
         ]
       }
@@ -132,14 +119,14 @@
         text: "Result"
       },
       value: {
-        text: data['result'].charAt(0).toUpperCase() + data['result'].slice(1)
+        text: "Passed"
       },
       actions: {
         items: [
           {
-            href: "/MQ/ria-smith-add-result",
+            href: '#',
             text: "Change",
-            visuallyHiddenText: "result"
+            visuallyHiddenText: "change result"
           }
         ]
       }
@@ -149,14 +136,14 @@
         text: "End date"
       },
       value: {
-        text: data| isoDateFromDateInput("passed") | govukDate
+        text: "31 December 2022"
       },
       actions: {
         items: [
           {
-            href: "/MQ/ria-smith-add-result",
+            href: '#',
             text: "Change",
-            visuallyHiddenText: "end date"
+            visuallyHiddenText: "change end date"
           }
         ]
       }
@@ -168,7 +155,7 @@
 
 {{ govukButton({
   text: "Add a mandatory qualification",
-  href: "/MQ/ria-smith-add-provider"
+  href: '#'
 }) }}
 
 {% endblock %}
